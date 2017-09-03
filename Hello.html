@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello world</title>
+    <link rel="stylesheet" href="jqwidgets/styles/jqx.base.css" type="text/css"/>
+    <script type="text/javascript" src="lib/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxbuttons.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxdraw.js"></script>
+    <script type="text/javascript" src="jqwidgets/jqxbargauge.js"></script>
+    <script>
+
+        var jQuery_1_11_1 = jQuery.noConflict();
+        if (!window.jQuery) window.jQuery = jQuery_1_11_1;
+
+//         $(document).ready(function () {
+//
+//             $("button").click(function () {
+//                $('div').hide();
+//             });
+//
+//             $("button").on("click",function () {
+//                alert("Button is clicked");
+//             });
+//
+//         });
+
+
+        jQuery_1_11_1(document).ready(function ($) {
+            $("#jqxbutton1111").jqxButton({ width: 150, height: 25 });
+            $("#jqxbutton1111").on('click', function () {
+                alert($.fn.jquery);
+            })
+
+
+            $('#barGauge').jqxBarGauge({
+                colorScheme: "scheme02", width: 600, height: 600,
+                values: [102, 115, 130, 137], max: 150, tooltip: {
+                    visible: true, formatFunction: function (value)
+                    {
+                        var realVal = parseInt(value);
+                        return ('Year: 2016<br/>Price Index:' + realVal);
+                    },
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+ <h1>Hello world</h1>
+
+<h2>This is a heading</h2>
+<div>This is a div</div>
+<button>Click me</button>
+
+ <div id='content'>
+     <div style='width: 150px;' id='jqxWidget'>
+         <div>
+             <input type="button" value="Use jQuery 1.11.1" id='jqxbutton1111' />
+         </div>
+     </div>
+ </div>
+
+ <div id="barGauge"></div>
+</body>
+</html>
